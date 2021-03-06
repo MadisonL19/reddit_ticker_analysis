@@ -2,25 +2,35 @@
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 
-# Enter page URL where you will scrape tickers and company names from
-url = "http://stockanalysis.com/stocks"
+# Create Ticker class for object setup
 
-req = Request(url, headers={'User-Agent': 'Chrome/88.0.4324.192'})
-# Open the webpage
-page = urlopen(req)
 
-# Pass webpage to BeautifulSoup
-soup = BeautifulSoup(page, 'html.parser')
+class Ticker():
+    def __init__(self, abbrev, name):
+        self.abbrev = abbrev
+        self.name = name
 
-# Extract the HTML from the page
-#html_bytes = page.read()
-#html = html_bytes.decode("utf-8")
 
-# Find list of tickers
-ticker_list = soup.find("ul", class_="no-spacing")
+query_list = []
 
-tickers = soup.find_all("li")
 
-for ticker in tickers:
-    title = ticker.text.strip()
-    print(title)
+def scrape_tickers():
+    # Enter page URL where you will scrape tickers and company names from
+    url = "http://stockanalysis.com/stocks"
+
+    req = Request(url, headers={'User-Agent': 'Chrome/88.0.4324.192'})
+    # Open the webpage
+    page = urlopen(req)
+
+    # Pass webpage to BeautifulSoup
+    soup = BeautifulSoup(page, 'html.parser')
+
+    # Find list of tickers
+    ticker_list = soup.find("ul", class_="no-spacing")
+
+    tickers = ticker_list.find_all("li")
+
+    for ticker in tickers:
+        ticker_text = ticker.text.strip()
+        split_ticker = ticker_text.split(" - ")
+        query_list.append(Ticker(split_ticker[0], split_ticker[1]))
