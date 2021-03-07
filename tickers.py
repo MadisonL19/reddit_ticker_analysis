@@ -15,6 +15,7 @@ query_list = []
 
 
 def scrape_tickers():
+
     # Enter page URL where you will scrape tickers and company names from
     url = "http://stockanalysis.com/stocks"
 
