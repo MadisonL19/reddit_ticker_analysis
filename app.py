@@ -2,9 +2,9 @@
 import praw
 import pandas as pd
 from config import client_id, client_secret, user_agent
-from tickers import Ticker, scrape_tickers, query_list
+from tickers import Ticker, scrape_tickers, scrape_IPOs, remove_duplicates, query_list, recent_IPO_list, upcoming_IPO_list
 
-# Scrape to get updated tickers and company names
+# Scrape to get updated tickers and company names for stocks and ETFs
 scrape_tickers()
 
 queries = []
