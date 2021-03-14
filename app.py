@@ -19,8 +19,8 @@ for i in import_lists:
         tickers.append(item)
 
 # Create connection to Reddit application
-reddit = praw.Reddit(client_id=client_id,      # your client id
-                     client_secret=client_secret,  # your client secret
+reddit = praw.Reddit(client_id=client_id,      # client id
+                     client_secret=client_secret,  # client secret
                      user_agent=user_agent,  # user agent name
                      username="",     # your reddit username
                      password="")     # your reddit password
