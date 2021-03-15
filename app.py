@@ -34,7 +34,7 @@ subreddit_list = ['Stocks']
 for subreddit in subreddit_list:
     subreddit = reddit.subreddit(subreddit)
     # Loop through top posts from subreddit within specified timeframe
-    for submission in subreddit.top("day"):
+    for submission in subreddit.top(limit=None, time_filter="day"):
         submission_obj = {
             "Post_Type": "Submission",
             "Submission_ID": submission.id,
@@ -74,15 +74,5 @@ for subreddit in subreddit_list:
 submissions_df = pd.DataFrame(submissions_list)
 comments_df = pd.DataFrame(comments_list)
 
-# submissions_df.to_csv("/Desktop/submissions.csv")
-# comments_df.to_csv("/Desktop/submissions.csv")
-
-for ticker in tickers:
-    for index, row in submissions_df.iterrows():
-        if ticker.abbrev in row["Body"] or ticker.abbrev in row["Title"]:
-            submissions_df["Ticker"] = submissions_df["Ticker"] + \
-                " ," + ticker.abbrev
-        else:
-            pass
-
-print(submissions_df[["Body", "Ticker"]])
+submissions_df.to_csv("submissions.csv", index=False)
+comments_df.to_csv("comments.csv", index=False)
