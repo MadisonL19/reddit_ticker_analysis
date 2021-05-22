@@ -73,8 +73,9 @@ for subreddit in subreddit_list:
             }
             comments_list.append(comment_obj)
 
+# Convert lists of submissions and comments to pandas dataframe
 submissions_df = pd.DataFrame(submissions_list)
 comments_df = pd.DataFrame(comments_list)
 
-submissions_df.to_csv("submissions.csv", index=False)
-comments_df.to_csv("comments.csv", index=False)
+#submissions_df.to_csv("submissions.csv", index=False)
+#comments_df.to_csv("comments.csv", index=False)
