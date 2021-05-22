@@ -73,4 +73,5 @@ for subreddit in subreddit_list:
                 comments_list.append(comment_obj)
 
 comments_df = pd.DataFrame(comments_list)
+
 comments_df.to_csv("dd_comments.csv", index=False)

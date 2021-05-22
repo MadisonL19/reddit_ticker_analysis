@@ -7,23 +7,10 @@ from bs4 import BeautifulSoup
 
 class Ticker():
     def __init__(self, label, abbrev, name):
-        # , count, total_sentiment, avg_sentiment):
         self.label = label
         self.abbrev = abbrev
         self.symbol = "$" + abbrev
         self.name = name
-    # self.count = count
-    #     self.total_sentiment = total_sentiment
-    #     self.avg_sentiment = avg_sentiment
-
-    # def update_count(self, value):
-    #     return self.count + value
-
-    # def update_total_sentiment(self, value):
-    #     return self.total_sentiment + value
-
-    # def update_avg_sentiment(self):
-    #     return self.count / self.total_sentiment
 
 
 query_list = []
