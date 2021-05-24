@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<HTML>
+
+<head>
+    <title>Hello, world!</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+</head>
+
+<body>
+    {% for row in rows %}
+    <div>
+        <p>{{row.ticker}}</p>
+        <p>{{row.date}}</p>
+        <p>{{row.count}}</p>
+        <p>{{row.sentiment}}</p>
+        <p>{{row.percent_change}}</p>
+    </div>
+    {% endfor %}
+</body>
+
+</HTML>
