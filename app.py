@@ -1,5 +1,7 @@
 # Dependencies
 from flask import Flask, render_template
+from flask import jsonify
+import json
 import sqlite3
 
 # Setting up Flask
@@ -14,6 +16,14 @@ def home():
     cur = conn.cursor()
     cur.execute("SELECT * FROM ticker_sentiment")
     rows = cur.fetchall()
+    for row in rows[:1]:
+        for item in row:
+            print(item)
+            # ticker symbol
+            # date
+            # count
+            # sentiment
+            # price change
     return render_template("index.html", rows=rows)
 
 
