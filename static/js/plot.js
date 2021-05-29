@@ -1,3 +1,3 @@
-d3.json("/").then((data) => {
+d3.json("/data").then((data) => {
     console.log(data)
 });
