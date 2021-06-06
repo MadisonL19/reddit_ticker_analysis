@@ -34,7 +34,7 @@ subreddit_list = ['Stocks']
 for subreddit in subreddit_list:
     subreddit = reddit.subreddit(subreddit)
     # Loop through top posts from subreddit within specified timeframe
-    for submission in subreddit.top(limit=None, time_filter="day"):
+    for submission in subreddit.top(limit=None, time_filter="month"):
         submission_obj = {
             "Post_Type": "Submission",
             "Submission_ID": submission.id,
@@ -77,5 +77,5 @@ for subreddit in subreddit_list:
 submissions_df = pd.DataFrame(submissions_list)
 comments_df = pd.DataFrame(comments_list)
 
-#submissions_df.to_csv("submissions.csv", index=False)
-#comments_df.to_csv("comments.csv", index=False)
+submissions_df.to_csv("submissions.csv", index=False)
+comments_df.to_csv("comments.csv", index=False)
